@@ -5963,7 +5963,13 @@ if (detailMeta) {
         <div class="ai-products-title">
             🛒 도움이 될 수 있는 제품/서비스
         </div>
+<!-- 기존 제품 표시 코드 -->
 
+    <div class="coupang-notice">
+        이 포스팅은 쿠팡 파트너스 활동의 일환으로,
+        이에 따른 일정액의 수수료를 제공받을 수 있습니다.
+    </div>
+</div>
         ${
             products.length > 0
                 ? `
@@ -6008,7 +6014,55 @@ if (detailMeta) {
                     </div>
                 `
         }
+    <div class="ai-products">
+    <div class="ai-products-title">
+        🛒 도움이 될 수 있는 제품/서비스
     </div>
+
+    ${
+        products.length > 0
+            ? `
+                <div class="product-list">
+                    ${products
+                        .map(item => `
+                            <div class="product-card">
+
+                                <div class="product-name">
+                                    ${item.name || "추천 제품/서비스"}
+                                </div>
+
+                                <div class="product-reason">
+                                    ${item.reason || ""}
+                                </div>
+
+                                <div class="product-link">
+                                    <a
+                                        href="https://link.coupang.com/a/hgg3SMuLM4"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        🛒 쿠팡에서 상품 보기
+                                    </a>
+                                </div>
+
+                            </div>
+                        `)
+                        .join("")}
+                </div>
+            `
+            : `
+                <div class="no-product">
+                    현재 댓글 내용을 기준으로
+                    직접적으로 추천할 제품이나 서비스가 없습니다.
+                </div>
+            `
+    }
+
+    <div class="coupang-notice">
+        이 포스팅은 쿠팡 파트너스 활동의 일환으로,
+        이에 따른 일정액의 수수료를 제공받을 수 있습니다.
+    </div>
+</div>
 `;
       }
 
