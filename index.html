@@ -6027,16 +6027,10 @@ if (detailMeta) {
               ? post.comments
               : [];
 
-if (
-    post.ai_summary &&
-    post.category &&
-    post.ai_summary.analysisType === "community_ai"
-) {
+if (post.ai_summary) {
     renderAI(post.ai_summary);
-    await loadPosts();
     return post.ai_summary;
 }
-
       // AI 분석 요청
       const { data, error } =
           await supabase.functions.invoke(
